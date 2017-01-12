@@ -112,19 +112,26 @@ void FibonacciHeapNode_addChild(FibonacciHeapNode_compare cmp, FibonacciHeapNode
 
 FibonacciHeapNode* FibonacciHeapNode_merge(FibonacciHeap* h, FibonacciHeapNode_compare cmp, FibonacciHeapNode* node1, FibonacciHeapNode* node2){
     FibonacciHeapNode *bigger, *smaller;
-    if(cmp(node1->value, node2->value) <= 0){
+    int cmpV = cmp(node1->value, node2->value);
+    if( cmpV < 0){
         bigger = node2;
         smaller = node1;
+    }else if (cmpV == 0) {
+        if (node1 == h->min) {
+            smaller = node1;
+            bigger = node2;
+        }else{
+            bigger = node1;
+            smaller = node2;
+        }
     }else{
         bigger = node1;
         smaller = node2;
     }
     
-
     bigger->left->right = bigger->right;
     bigger->right->left = bigger->left;
     
-
     FibonacciHeapNode_addChild(cmp, smaller, bigger);
     if(h->min == bigger){
         h->min = smaller;
@@ -258,7 +265,6 @@ FibonacciHeapNode* FibonacciHeap_extractMin(FibonacciHeap* heap){
         }
         end = preMin->left;
         
-        //current = heap->min;
     }else{
         end = preMin->child->left;
         heap->min = preMin->child;
