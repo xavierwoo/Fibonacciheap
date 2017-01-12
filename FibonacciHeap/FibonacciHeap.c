@@ -3,7 +3,7 @@
 //  FibonacciHeap
 //
 //  Created by Xinyun on 2016/12/6.
-//  Copyright © 2016年 Xavier Woo. All rights reserved.
+//  Copyright © 2016 Xavier Woo. All rights reserved.
 //
 
 #include "FibonacciHeap.h"
@@ -230,7 +230,7 @@ FibonacciHeapNode* FibonacciHeap_insert(FibonacciHeap* heap, void* key, void* va
 
 
 
-FibonacciHeapNode* FibonacciHeap_exactMin(FibonacciHeap* heap){
+FibonacciHeapNode* FibonacciHeap_extractMin(FibonacciHeap* heap){
     FibonacciHeapNode *end, *current, *next = NULL;
     FibonacciHeapNode* preMin = heap->min;
     int continueFlag = 1;

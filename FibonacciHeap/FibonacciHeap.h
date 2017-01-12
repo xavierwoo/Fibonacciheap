@@ -3,7 +3,7 @@
 //  FibonacciHeap
 //
 //  Created by Xinyun on 2016/12/6.
-//  Copyright © 2016年 Xavier Woo. All rights reserved.
+//  Copyright © 2016 Xavier Woo. All rights reserved.
 //
 
 #ifndef FibonacciHeap_h
@@ -45,7 +45,7 @@ FibonacciHeap* FibonacciHeap_new(FibonacciHeapNode_compare cmp);
 
 FibonacciHeapNode* FibonacciHeap_insert(FibonacciHeap* heap, void* key, void* value);
 
-FibonacciHeapNode* FibonacciHeap_exactMin(FibonacciHeap* heap);
+FibonacciHeapNode* FibonacciHeap_extractMin(FibonacciHeap* heap);
 
 void FibonacciHeap_decreaseKey(FibonacciHeap* heap, FibonacciHeapNode* node, void* value, FibonacciHeap_destructor valueDestructor);
 
